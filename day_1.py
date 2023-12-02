@@ -7,14 +7,14 @@ words = [
 
 
 def main():
-    result_1 = []
+    result = []
     lines = file_fetcher.fetch_all_lines()
     for line in lines:
         word_digit_indexes = sum([word_digits_indexes(line, word) for word in words], [])
         digit_indexes = digit_indexes_in_string(line)
         all_indexes = sorted(word_digit_indexes + digit_indexes, key=lambda x: x[0])
-        result_1.append(int(all_indexes[0][1] + all_indexes[-1][1]))
-    print(sum(result_1))
+        result.append(int(all_indexes[0][1] + all_indexes[-1][1]))
+    print(sum(result))
 
 
 def word_digits_indexes(string, word):
